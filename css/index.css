@@ -1,0 +1,659 @@
+@charset "utf-8";
+
+/* ==================== 基础重置与字体 ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", "SimSun", "PingFang SC", sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ==================== 页面容器 ==================== */
+.page {
+    width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    /* 添加纸质纹理 */
+    background-image: 
+        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px),
+        linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 20px 20px, 20px 20px;
+    background-position: center center;
+}
+
+/* 顶部三色装饰线 - 彝族黑、红、黄三色文化 */
+.page::before {
+    content: "";
+    display: block;
+    height: 6px;
+    background: linear-gradient(90deg, #1f2937 0%, #dc2626 50%, #f59e0b 100%);
+    width: 100%;
+    position: relative;
+}
+
+/* 顶部装饰线下方添加彝族刺绣风格几何纹 */
+.page::after {
+    content: "";
+    display: block;
+    height: 24px;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 10px,
+            rgba(30, 58, 138, 0.15) 10px,
+            rgba(30, 58, 138, 0.15) 20px,
+            transparent 20px,
+            transparent 30px
+        ),
+        repeating-linear-gradient(
+            45deg,
+            transparent 0px,
+            transparent 5px,
+            rgba(220, 38, 38, 0.1) 5px,
+            rgba(220, 38, 38, 0.1) 10px
+        );
+    background-size: 40px 24px, 20px 20px;
+    border-bottom: 2px solid rgba(245, 158, 11, 0.4);
+}
+
+/* ==================== 横幅区域 ==================== */
+.banner {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(90deg, #1f2937, #dc2626, #f59e0b) 1;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.banner:hover img {
+    transform: scale(1.02);
+}
+
+/* 横幅装饰角 - 彝族八角纹简版 */
+.banner::before,
+.banner::after {
+    content: "◆";
+    position: absolute;
+    color: rgba(245, 158, 11, 0.6);
+    font-size: 24px;
+    z-index: 10;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.banner::before {
+    top: 15px;
+    left: 15px;
+}
+
+.banner::after {
+    bottom: 15px;
+    right: 15px;
+    transform: rotate(45deg);
+}
+
+/* ==================== 导航栏 ==================== */
+.daohang {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2c5282 100%);
+    padding: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    /* 添加底部刺绣感边框 - 彝族黄 */
+    border-bottom: 2px solid rgba(245, 158, 11, 0.5);
+}
+
+.daohang p {
+    display: inline-block;
+    margin: 0;
+    position: relative;
+}
+
+.daohang a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 25px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 导航hover效果 - 金色滑入 */
+.daohang a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: rgba(245, 158, 11, 0.9);
+    transition: height 0.3s ease;
+    z-index: -1;
+}
+
+/* 彝族火焰纹渐变扫过效果 */
+.daohang a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(245, 158, 11, 0.3),
+        transparent
+    );
+    transition: left 0.5s;
+    z-index: -1;
+}
+
+.daohang a:hover {
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.daohang a:hover::before {
+    height: 100%;
+}
+
+.daohang a:hover::after {
+    left: 100%;
+}
+
+/* 导航项分隔 - 彝族风格棱形 */
+.daohang p:not(:last-child)::after {
+    content: "◆";
+    color: rgba(245, 158, 11, 0.6);
+    font-size: 8px;
+    position: absolute;
+    right: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ==================== 内容区域 ==================== */
+.content {
+    padding: 40px 30px;
+    overflow: hidden;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" opacity="0.04"><path d="M30 10 L40 30 L30 50 L20 30 Z" fill="none" stroke="%231e3a8a" stroke-width="1"/></svg>'),
+        linear-gradient(to bottom, #fefefe 0%, #f9f9f9 100%);
+    background-size: 60px 60px, 100% 100%;
+    position: relative;
+}
+
+/* 内容区侧边装饰线 - 彝族三色条纹（黑红黄） */
+.content::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    bottom: 40px;
+    width: 4px;
+    background: repeating-linear-gradient(
+        180deg,
+        #1f2937 0px,    /* 彝族黑 */
+        #1f2937 8px,
+        #dc2626 8px,    /* 彝族红 */
+        #dc2626 16px,
+        #f59e0b 16px,   /* 彝族黄 */
+        #f59e0b 24px,
+        transparent 24px,
+        transparent 32px
+    );
+    opacity: 0.6;
+    border-radius: 2px;
+}
+
+/* ==================== 左侧栏 ==================== */
+.zuo {
+    width: 380px;
+    float: left;
+    margin-right: 40px;
+    position: relative;
+}
+
+/* 彝族八角花装饰（银饰风格） */
+.zuo::before {
+    content: "✦";
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    font-size: 32px;
+    color: rgba(31, 41, 55, 0.15);
+    font-family: serif;
+    z-index: 10;
+    text-shadow: 2px 2px 0 rgba(220, 38, 38, 0.1);
+}
+
+.zuo img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: block;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-bottom: none;
+}
+
+.fangshi {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-top: 4px solid #dc2626;
+    border-radius: 0 0 8px 8px;
+    padding: 25px;
+    margin-top: -5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: relative;
+    /* 添加左侧民族色彩条 */
+    border-left: 3px solid #f59e0b;
+}
+
+/* 右上角装饰 - 蜡染圆点 */
+.fangshi::before {
+    content: "◎";
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 40px;
+    color: rgba(220, 38, 38, 0.1);
+    font-family: serif;
+    line-height: 1;
+}
+
+/* 彝族漆器纹样角落（左下角三角形几何纹） */
+.fangshi::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background: 
+        linear-gradient(45deg, transparent 50%, rgba(245, 158, 11, 0.1) 50%),
+        linear-gradient(-45deg, transparent 50%, rgba(220, 38, 38, 0.1) 50%);
+    background-size: 10px 10px;
+    border-radius: 0 0 0 8px;
+    pointer-events: none;
+}
+
+.fangshi h1 {
+    font-size: 24px;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f59e0b;
+    font-weight: 700;
+    letter-spacing: 2px;
+    position: relative;
+    /* 标题前添加民族符号 */
+    padding-left: 30px;
+}
+
+.fangshi h1::before {
+    content: "❖";
+    position: absolute;
+    left: 0;
+    color: #dc2626;
+    font-size: 20px;
+}
+
+.fangshi h1::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: #dc2626;
+}
+
+.fangshi p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #4b5563;
+    text-align: justify;
+    text-indent: 2em;
+    position: relative;
+}
+
+/* 段落首字下沉效果 - 古书风格 */
+.fangshi p::first-letter {
+    font-size: 2em;
+    color: #dc2626;
+    font-weight: bold;
+    float: left;
+    line-height: 1;
+    margin-right: 4px;
+    font-family: "SimSun", serif;
+}
+
+/* ==================== 右侧栏 ==================== */
+.you {
+    width: 600px;
+    float: left;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    overflow: hidden;
+    position: relative;
+    /* 添加顶部装饰边 */
+    border-top: 4px solid #1e3a8a;
+}
+
+.you h2 {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2c5282 100%);
+    color: #fff;
+    padding: 20px 30px;
+    font-size: 22px;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 3px;
+    position: relative;
+    overflow: hidden;
+    /* 标题前加民族图标 - 彝族虎纹抽象 */
+    padding-left: 60px;
+}
+
+/* 标题装饰 - 彝族虎纹/火焰纹简意（几何交叉） */
+.you h2::before {
+    content: "";
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: 
+        linear-gradient(45deg, transparent 40%, #f59e0b 40%, #f59e0b 60%, transparent 60%),
+        linear-gradient(-45deg, transparent 40%, #dc2626 40%, #dc2626 60%, transparent 60%);
+    opacity: 0.9;
+}
+
+.you h2::after {
+    content: "";
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 80px;
+    height: 80px;
+    background: rgba(245, 158, 11, 0.3);
+    border-radius: 50%;
+}
+
+.neirong {
+    padding: 30px;
+    background: linear-gradient(to bottom, #fff 0%, #fafaf9 100%);
+    position: relative;
+}
+
+/* 列表区域背景添加淡淡的几何纹 */
+.neirong::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.03"><path d="M50 10 L90 50 L50 90 L10 50 Z" fill="none" stroke="%23dc2626" stroke-width="2"/></svg>');
+    pointer-events: none;
+}
+
+.neirong ul {
+    list-style: none;
+    padding: 0;
+}
+
+.neirong li {
+    padding: 12px 0;
+    border-bottom: 1px dashed #d1d5db;
+    color: #374151;
+    font-size: 15px;
+    position: relative;
+    padding-left: 32px;
+    transition: all 0.3s ease;
+}
+
+/* 列表标记改为民族风格的圆点 */
+.neirong li::before {
+    content: "●";
+    position: absolute;
+    left: 0;
+    color: #f59e0b;
+    font-size: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+/* 奇数项用红色点缀 */
+.neirong li:nth-child(odd)::before {
+    color: #dc2626;
+}
+
+/* 彝族火焰色渐变hover效果 */
+.neirong li:hover {
+    color: #1e3a8a;
+    padding-left: 36px;
+    background: linear-gradient(
+        90deg,
+        rgba(220, 38, 38, 0.05) 0%,
+        rgba(245, 158, 11, 0.05) 50%,
+        transparent 100%
+    );
+    border-bottom-color: #f59e0b;
+    border-left: 3px solid #dc2626;
+}
+
+.neirong li:hover::before {
+    color: #dc2626;
+    transform: translateY(-50%) scale(1.5);
+}
+
+/* 图片样式 - 添加彝族三色刺绣边框 */
+.neirong li img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 15px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    /* 彝族三色边框效果 */
+    border: 2px solid transparent;
+    border-image: linear-gradient(
+        45deg,
+        #1f2937 0%,
+        #dc2626 50%,
+        #f59e0b 100%
+    ) 1;
+    padding: 5px;
+    background: #fff;
+}
+
+.neirong li img:hover {
+    transform: scale(1.02) rotate(1deg);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    border-color: #f59e0b;
+    border-image: linear-gradient(
+        45deg,
+        #f59e0b 0%,
+        #dc2626 50%,
+        #1f2937 100%
+    ) 1;
+}
+
+/* ==================== 清除浮动 ==================== */
+.clearit {
+    clear: both;
+    height: 40px;
+    position: relative;
+}
+
+/* 清除浮动处的装饰分隔 */
+.clearit::before {
+    content: "◆ ❖ ◆";
+    display: block;
+    text-align: center;
+    color: rgba(30, 58, 138, 0.2);
+    font-size: 12px;
+    letter-spacing: 10px;
+    line-height: 40px;
+}
+
+/* ==================== 页脚 ==================== */
+.foot {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    color: #fff;
+    text-align: center;
+    padding: 35px 30px;
+    margin-top: 0;
+    position: relative;
+    /* 添加民族图案底纹 */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" opacity="0.05"><rect x="10" y="10" width="20" height="20" fill="none" stroke="%23ffffff" stroke-width="1"/></svg>');
+}
+
+/* 彝族回纹装饰线（黑红黄三色交替） */
+.foot::before {
+    content: "";
+    display: block;
+    height: 6px;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            #f59e0b 0px,
+            #f59e0b 20px,
+            #dc2626 20px,
+            #dc2626 40px,
+            #1f2937 40px,
+            #1f2937 60px
+        ),
+        linear-gradient(90deg, #f59e0b, #dc2626, #1f2937, #dc2626, #f59e0b);
+    background-size: 60px 100%, 100% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* 页脚装饰文字 */
+.foot::after {
+    content: "彩云之南";
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.1);
+    font-style: italic;
+    letter-spacing: 4px;
+}
+
+.foot p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #d1d5db;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+/* ==================== 响应式优化 ==================== */
+@media (max-width: 1120px) {
+    .page {
+        width: 95%;
+        margin: 20px auto;
+    }
+    
+    .zuo, .you {
+        width: 100%;
+        float: none;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .daohang {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    
+    .daohang a {
+        height: 50px;
+        line-height: 50px;
+        padding: 0 15px;
+        font-size: 14px;
+    }
+    
+    .content::before {
+        display: none;
+    }
+}
+
+/* ==================== 装饰性元素 ==================== */
+/* 全局背景添加淡淡的彝绣几何纹理（八角花简化） */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" opacity="0.02"><path d="M30 5 L55 30 L30 55 L5 30 Z" fill="none" stroke="%231f2937" stroke-width="1"/><circle cx="30" cy="30" r="3" fill="%23dc2626"/></svg>');
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 选中文字的颜色 - 彝族金 */
+::selection {
+    background: rgba(245, 158, 11, 0.3);
+    color: #1e3a8a;
+}
+
+/* 滚动条美化 - 彝族三色 */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #1f2937, #dc2626, #f59e0b);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #f59e0b, #dc2626, #1f2937);
+}

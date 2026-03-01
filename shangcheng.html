@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>非遗传承——彝火数藏</title>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<style>
+/* 二维码区域样式 - 仅在本页生效 */
+.qr-section {
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.qr-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.qr-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(233,69,96,0.1) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(0.8); }
+    50% { transform: scale(1.1); }
+}
+
+.qr-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    position: relative;
+    z-index: 1;
+}
+
+.qr-wrapper {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    padding: 15px;
+    border: 3px solid #e94560;
+    border-radius: 15px;
+}
+
+.qr-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.qr-hint {
+    margin-top: 25px;
+    color: #666;
+    font-size: 16px;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 装饰角 */
+.corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 4px solid #e94560;
+}
+
+.corner-tl { top: 15px; left: 15px; border-right: none; border-bottom: none; border-radius: 5px 0 0 0; }
+.corner-tr { top: 15px; right: 15px; border-left: none; border-bottom: none; border-radius: 0 5px 0 0; }
+.corner-bl { bottom: 15px; left: 15px; border-right: none; border-top: none; border-radius: 0 0 0 5px; }
+.corner-br { bottom: 15px; right: 15px; border-left: none; border-top: none; border-radius: 0 0 5px 0; }
+
+/* 扫码提示 */
+.scan-tip {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 30px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 25px;
+    font-size: 14px;
+    letter-spacing: 3px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Copyright � 2005. Spidersoft Ltd -->
+<style>
+A.applink:hover {border: 2px dotted #DCE6F4;padding:2px;background-color:#ffff00;color:green;text-decoration:none}
+A.applink       {border: 2px dotted #DCE6F4;padding:2px;color:#2F5BFF;background:transparent;text-decoration:none}
+A.info          {color:#2F5BFF;background:transparent;text-decoration:none}
+A.info:hover    {color:green;background:transparent;text-decoration:underline}
+</style>
+<!-- /Copyright � 2005. Spidersoft Ltd -->
+<div class="page">
+<div class="banner"><img src="images/banner.jpg" /></div>
+
+  <div class="daohang">
+        <p><a href="index.html">首页</a></p>
+        <p><a href="jieshao.html">彝族介绍</a></p>
+        <p><a href="jiyi.html">传统技艺</a></p>
+        <p><a href="shuangyu.html">彝汉双语</a></p>
+        <p><a href="gushi.html">民间故事</a></p>
+        <p><a href="shangcheng.html">非遗商城</a></p>
+        <p><a href="shangye.html">商业模式</a></p>
+        <p><a href="liuyan.html">客户留言</a></p>
+    </div>
+
+<div class="content">
+
+<!-- 二维码展示区域 - 替换原有左右分栏内容 -->
+<div class="qr-section">
+    <div class="qr-box">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        
+        <div class="qr-title">非遗商城入口</div>
+        
+        <div class="qr-wrapper">
+            <!-- 请在这里替换为你的二维码图片 -->
+            <img src="images/shangcheng.jpg" alt="商城二维码" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#f0f0f0;color:#999;border-radius:10px;\'>请放置二维码图片<br>images/shop-qrcode.png</div>';">
+        </div>
+        
+        <div class="qr-hint">微信扫码进入商城选购</div>
+        <div class="scan-tip">扫码购物</div>
+    </div>
+</div>
+<!-- 二维码区域结束 -->
+
+<div class="clearit"></div>
+
+<div class="foot"><p>版权所有 禁止盗版  <br />联系我们：dnijbv@163.com（邮箱）</p></div>
+
+
+</div>
+
+
+
+
+</div>
+</body>
+</html>

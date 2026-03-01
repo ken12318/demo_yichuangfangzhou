@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>非遗传承——传统技艺</title>
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<style type="text/css">
+/* 传统技艺专用样式 */
+.craft-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.craft-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.craft-item {
+    background: #FFF8DC;
+    border: 2px solid #D2691E;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(139, 69, 19, 0.1);
+}
+
+.craft-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(139, 69, 19, 0.2);
+    border-color: #8B4513;
+}
+
+.craft-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-bottom: 2px solid #D2691E;
+}
+
+.craft-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.craft-item:hover .craft-image img {
+    transform: scale(1.05);
+}
+
+.craft-content {
+    padding: 15px;
+}
+
+.craft-title {
+    color: #8B4513;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #D2691E;
+    padding-bottom: 8px;
+}
+
+.craft-desc {
+    color: #5D4037;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.craft-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #D2691E;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.craft-link:hover {
+    color: #8B4513;
+    text-decoration: underline;
+}
+
+/* 响应式：小屏幕单列显示 */
+@media (max-width: 768px) {
+    .craft-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+<div class="banner"><img src="images/banner.jpg" /></div>
+
+  <div class="daohang">
+        <p><a href="index.html">首页</a></p>
+        <p><a href="jieshao.html">彝族介绍</a></p>
+        <p><a href="jiyi.html">传统技艺</a></p>
+        <p><a href="shuangyu.html">彝汉双语</a></p>
+        <p><a href="gushi.html">民间故事</a></p>
+        <p><a href="shangcheng.html">非遗商城</a></p>
+        <p><a href="shangye.html">商业模式</a></p>
+        <p><a href="liuyan.html">客户留言</a></p>
+    </div>
+
+
+<div class="content">
+
+<div class="zuo">
+<img src="images/zuo1.jpg" />
+<div class="fangshi">
+  <h1>技艺分类</h1>
+  <p>　　彝族传统技艺涵盖刺绣、乐器、舞蹈、文学等多个领域，是彝族人民在长期生产生活中创造的智慧结晶。这些技艺不仅具有极高的艺术价值，更承载着彝族的历史记忆和文化基因。<br /><br />
+  　　本页面展示七大传统技艺：彝族刺绣的精美绝伦、彝笛的悠扬婉转、三弦舞的欢快节奏、葫芦笙的古老神秘、羊皮鼓舞的庄重神圣、元谋花灯的民间风情，以及阿鲁举热史诗的磅礴气势。每一项技艺都是活态的文化遗产，值得我们用心保护与传承。<br />
+  </p>
+</div>
+       
+</div>
+
+
+<div class="you">
+<h2 style="color: #8B4513;">非遗传承——传统技艺</h2>
+
+<div class="craft-container">
+    <div class="craft-grid">
+        
+        <!-- 彝族刺绣 -->
+        <div class="craft-item">
+            <div class="craft-image">
+                <img src="images/yixiu2.jpg" alt="彝族刺绣" />
+            </div>
+            <div class="craft-content">
+                <div class="craft-title">◎ 彝族刺绣</div>
+                <div class="craft-desc">
+                    彝族刺绣历史悠久，工艺精湛，以黑、红、黄为主色调，图案多为日月星辰、山川河流、花鸟虫鱼。每一针每一线都蕴含着彝族人民对自然的敬畏和对美好生活的向往，是穿在身上的史诗。
+                </div>
+                <a href="yixiu.html" class="craft-link">查看详情 →</a>
+            </div>
+        </div>
+
+        <!-- 彝笛 -->
+        <div class="craft-item">
+            <div class="craft-image">
+                <img src="images/yidi2.jpg" alt="彝笛" />
+            </div>
+            <div class="craft-content">
+                <div class="craft-title">◎ 彝笛</div>
+                <div class="craft-desc">
+                    彝笛是彝族特有的吹奏乐器，竹制双管，音色清脆悠扬，被誉为"东方魔笛"。常用于独奏或伴奏，是彝族青年表达爱情、传递情感的重要媒介，其制作技艺已被列入非物质文化遗产名录。
+                </div>
+                <a href="yidi.html" class="craft-link">查看详情 →</a>
+            </div>
+        </div>
+
+        <!-- 三弦舞 -->
+        <div class="craft-item">
+            <div class="craft-image">
+                <img src="images/sanxianwu.jpg" alt="三弦舞" />
+            </div>
+            <div class="craft-content">
+                <div class="craft-title">◎ 三弦舞</div>
+                <div class="craft-desc">
+                    三弦舞又称"阿细跳月"，是彝族阿细人最具代表性的民间舞蹈。男子弹奏大三弦，女子拍手起舞，动作轻盈舒展，节奏明快热烈，展现了彝族人民乐观向上的精神风貌，是国家级非物质文化遗产。
+                </div>
+                <a href="sanxianwu.html" class="craft-link">查看详情 →</a>
+            </div>
+        </div>
+
+        <!-- 葫芦笙 -->
+        <div class="craft-item">
+            <div class="craft-image">
+                <img src="images/hulusheng2.jpg" alt="葫芦笙" />
+            </div>
+            <div class="craft-content">
+                <div class="craft-title">◎ 葫芦笙</div>
+                <div class="craft-desc">
+                    葫芦笙是彝族古老的簧管乐器，以葫芦为笙斗，插入多根竹管制成。音色浑厚深沉，常用于祭祀、节庆和舞蹈伴奏。葫芦笙舞将演奏与舞蹈完美结合，是彝族文化的重要标识，传承千年而不衰。
+                </div>
+                <a href="hulusheng.html" class="craft-link">查看详情 →</a>
+            </div>
+        </div>
+
+        <!-- 羊皮鼓舞 -->
+        <div class="craft-item">
+            <div class="craft-image">
+                <img src="images/yangpiguwu2.jpg" alt="羊皮鼓舞" />
+            </div>
+            <div class="craft-content">
+                <div class="craft-title">◎ 羊皮鼓舞</div>
+                <div class="craft-desc">
+                    羊皮鼓舞是彝族毕摩文化的重要组成部分，舞者身着法衣，头戴神冠，手持羊皮鼓边击边舞。舞蹈庄重神秘，鼓点震撼人心，具有驱邪纳福、祭祀祖先的神圣功能，是研究彝族原始宗教的活化石。
+                </div>
+                <a href="yangpiguwu.html" class="craft-link">查看详情 →</a>
+            </div>
+        </div>
+
+        <!-- 元谋花灯 -->
+        <div class="craft-item">
+            <div class="craft-image">
+                <img src="images/huadeng1.jpg" alt="元谋花灯" />
+            </div>
+            <div class="craft-content">
+                <div class="craft-title">◎ 元谋花灯</div>
+                <div class="craft-desc">
+                    元谋花灯是流传于云南元谋地区的传统戏曲形式，融合了彝族歌舞与汉族花灯艺术。表演形式活泼多样，唱腔优美动听，内容多反映民间生活，是彝汉文化交流融合的结晶，深受当地群众喜爱。
+                </div>
+                <a href="huadeng.html" class="craft-link">查看详情 →</a>
+            </div>
+        </div>
+
+        <!-- 阿鲁举热史诗 -->
+        <div class="craft-item" style="grid-column: 1 / -1; max-width: 48%; margin: 0 auto;">
+            <div class="craft-image">
+                <img src="images/alujure2.jpg" alt="阿鲁举热史诗" />
+            </div>
+            <div class="craft-content">
+                <div class="craft-title">◎ 阿鲁举热史诗</div>
+                <div class="craft-desc">
+                    《阿鲁举热》是彝族长篇英雄史诗，讲述了英雄支格阿鲁射日射月、降妖除魔、造福百姓的传奇故事。史诗规模宏大，内容丰富，是彝族文学宝库中的璀璨明珠，具有极高的文学价值和历史价值，被誉为彝族的《荷马史诗》。
+                </div>
+                <a href="alujure.html" class="craft-link">查看详情 →</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+
+<div class="clearit"></div>
+
+<div class="foot"><p>版权所有 禁止盗版  <br />云南欢迎您</p></div>
+
+
+</div>
+
+
+
+
+</div>
+</body>
+</html>

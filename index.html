@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>非遗传承——彝火数藏</title>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+
+<!-- 仅添加必要的布局辅助样式，不改动原有CSS -->
+<style type="text/css">
+/* 辅助：让左右分区更清晰的布局 */
+.content {
+    overflow: hidden; /* 清除浮动 */
+    padding: 20px;
+}
+
+/* 左侧：固定宽度浮动 */
+.zuo {
+    float: left;
+    width: 32%;
+    margin-right: 3%;
+}
+
+/* 右侧：自适应宽度 */
+.you {
+    float: left;
+    width: 65%;
+}
+
+/* 确保容器撑开 */
+.clearit {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 轮播图从列表中独立出来后的样式补偿 */
+.slider-container {
+    margin: 20px 0;
+    width: 100%;
+    height: 350px;
+}
+
+/* 右侧内容分块 */
+.you-section {
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 技艺列表横向排列优化 */
+.craft-grid {
+    overflow: hidden;
+}
+.craft-grid li {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+    margin-bottom: 10px;
+    list-style: none;
+}
+.craft-grid li:nth-child(2n) {
+    margin-right: 0;
+}
+
+/* 故事列表样式保持 */
+.story-list li {
+    list-style: none;
+    padding: 8px 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+/* 响应式：小屏幕时堆叠 */
+@media (max-width: 768px) {
+    .zuo, .you {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+    }
+}
+</style>
+
+<!-- 轮播图CSS - 方案二：图片上叠加半透明文字 -->
+<style type="text/css">
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #8B4513;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.slide.active {
+    opacity: 1;
+}
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* 文字说明样式 - 叠加在图片底部 */
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(139, 69, 19, 0.85);  /* 半透明赭石色背景 */
+    color: #FFD700;  /* 金黄色文字 */
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    /* 文字阴影增强可读性 */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    /* 上边框装饰 */
+    border-top: 2px solid #FFD700;
+}
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(139, 69, 19, 0.7);
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+}
+.slider-prev { left: 0; border-radius: 0 4px 4px 0; }
+.slider-next { right: 0; border-radius: 4px 0 0 4px; }
+.slider-dots {
+    position: absolute;
+    bottom: 60px;  /* 调整位置，避免与文字重叠 */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+}
+.dot.active {
+    background: #FFD700;
+    border: 2px solid #8B4513;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+    <div class="banner"><img src="images/banner.jpg" /></div>
+
+    <div class="daohang">
+        <p><a href="index.html">首页</a></p>
+        <p><a href="jieshao.html">彝族介绍</a></p>
+        <p><a href="jiyi.html">传统技艺</a></p>
+        <p><a href="shuangyu.html">彝汉双语</a></p>
+        <p><a href="gushi.html">民间故事</a></p>
+        <p><a href="shangcheng.html">非遗商城</a></p>
+        <p><a href="shangye.html">商业模式</a></p>
+        <p><a href="liuyan.html">客户留言</a></p>
+    </div>
+
+    <div class="content">
+        <!-- 左侧：保持原有结构 -->
+        <div class="zuo">
+            <img src="images/zuo1.jpg" />
+            <div class="fangshi">
+                <h1>彝族简介</h1>
+                <p>
+                    彝族是中国西南地区世代繁衍生息的原住民族之一，人口约983万（2020年），主要分布在云南、四川、贵州、广西四省区的山区与高原地带。支系繁多，如诺苏、聂苏、腊罗颇等，各有独特的语言方言和文化习俗。<br /><br />
+                    
+                    彝族拥有独立创制的彝文（传统宗教文字），是世界上最古老的文字体系之一，用羊皮纸和竹简记载了丰富的史诗、天文历法和医药知识。其创世史诗《梅葛》《查姆》与长篇叙事诗《阿诗玛》是中华文化瑰宝。<br /><br />
+                    
+                    火把节是彝族最盛大的传统节日，通常在农历六月二十四举行，人们点燃火把驱虫祈福，彻夜歌舞。彝族服饰以黑、红、黄为主色调，男子披"察尔瓦"（羊毛披风），女子着百褶长裙，刺绣精美。传统民居"土掌房"与"瓦板房"依山而建，冬暖夏凉。<br /><br />
+                   
+                    彝族文化保存了丰富的十月太阳历知识，在天文、冶炼、医药等方面都有独特贡献，是中华民族多元一体格局中的重要组成部分。
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <a href="jieshao.html">查看更多</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- 右侧：重新组织，不再把轮播图塞在ul里 -->
+        <div class="you">
+            
+            <!-- 区块1：轮播图（独立出来，不再嵌套在li中） -->
+            <div class="you-section">
+                <h2 style="color: #8B4513; margin-bottom:15px;">非遗风采展示</h2>
+                <div class="slider-container" id="craftSlider">
+                    <div class="slider-wrapper">
+                        <!-- 每个slide包含图片和文字说明 -->
+                        <div class="slide active">
+                            <img src="images/yixiu.jpg" alt="彝族刺绣" />
+                            <div class="slide-caption">彝族刺绣</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/yangpiguwu.jpg" alt="羊皮鼓舞" />
+                            <div class="slide-caption">羊皮鼓舞</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/sanxianwu.jpg" alt="三弦舞" />
+                            <div class="slide-caption">三弦舞</div>
+                        </div>
+                        <div class="slide">
+                            <img src="images/hulusheng.jpg" alt="葫芦笙" />
+                            <div class="slide-caption">葫芦笙</div>
+                        </div>
+                         <div class="slide">
+                            <img src="images/huobajie.jpg" alt="火把节" />
+                            <div class="slide-caption">火把节</div>
+                        </div>
+                    </div>
+                    
+                    <button class="slider-btn slider-prev" onclick="changeSlide(-1)">&#10094;</button>
+                    <button class="slider-btn slider-next" onclick="changeSlide(1)">&#10095;</button>
+                    
+                    <div class="slider-dots" id="sliderDots"></div>
+                </div>
+            </div>
+
+            <!-- 区块2：传统技艺（使用两列布局，不再是一长条） -->
+            <div class="you-section">
+                <h2 style="color: #8B4513; margin-bottom:15px;">非遗传承——传统技艺</h2>
+                <ul class="craft-grid">
+                    <li><a href="yixiu.html" style="text-decoration: none;">◎ 彝族刺绣</a></li>
+                    <li><a href="yidi.html" style="text-decoration: none;">◎ 彝笛</a></li>
+                    <li><a href="sanxianwu.html" style="text-decoration: none;">◎ 三弦舞</a></li>
+                    <li><a href="hulusheng.html" style="text-decoration: none;">◎ 葫芦笙</a></li>
+                    <li><a href="yangpiguwu.html" style="text-decoration: none;">◎ 羊皮鼓舞</a></li>
+                    <li><a href="huadeng.html" style="text-decoration: none;">◎ 元谋花灯</a></li>
+                    <li><a href="alujure.html" style="text-decoration: none;">◎ 阿鲁举热史诗</a></li>
+                </ul>
+            </div>
+
+            <!-- 区块3：民族故事 -->
+            <div class="you-section">
+                <h2 style="color: #8B4513; margin-bottom:15px;">非遗传承——彝汉双语</h2>
+                <ul class="story-list">
+                    <li>阿诗玛</li>
+                    <li>火把节的故事</li>
+                    <li>支格阿龙</li>
+                </ul>
+                <p style="text-align:right; margin-top:15px;">
+                    <a href="gushi.html" style="color:#8B4513; text-decoration:none; font-weight:bold;">查看更多 →</a>
+                </p>
+            </div>
+
+        </div>
+        
+        <div class="clearit"></div>
+    </div>
+
+    <div class="foot">
+        <p>版权所有 禁止盗版<br />联系我们：dnijbv@163.com（邮箱）</p>
+    </div>
+</div>
+
+<!-- 引用外部JS文件（确保路径正确） -->
+<script type="text/javascript" src="Scripts/slide.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>彝汉双语教学——彝火数藏</title>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+
+<style type="text/css">
+@charset "utf-8";
+
+/* ==================== 基础重置与字体 ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", "SimSun", "PingFang SC", sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ==================== 页面容器 ==================== */
+.page {
+    width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    /* 添加纸质纹理 */
+    background-image: 
+        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px),
+        linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 20px 20px, 20px 20px;
+    background-position: center center;
+}
+
+/* 顶部三色装饰线 - 彝族黑、红、黄三色文化 */
+.page::before {
+    content: "";
+    display: block;
+    height: 6px;
+    background: linear-gradient(90deg, #1f2937 0%, #dc2626 50%, #f59e0b 100%);
+    width: 100%;
+    position: relative;
+}
+
+/* 顶部装饰线下方添加彝族刺绣风格几何纹 */
+.page::after {
+    content: "";
+    display: block;
+    height: 24px;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 10px,
+            rgba(30, 58, 138, 0.15) 10px,
+            rgba(30, 58, 138, 0.15) 20px,
+            transparent 20px,
+            transparent 30px
+        ),
+        repeating-linear-gradient(
+            45deg,
+            transparent 0px,
+            transparent 5px,
+            rgba(220, 38, 38, 0.1) 5px,
+            rgba(220, 38, 38, 0.1) 10px
+        );
+    background-size: 40px 24px, 20px 20px;
+    border-bottom: 2px solid rgba(245, 158, 11, 0.4);
+}
+
+/* ==================== 横幅区域 ==================== */
+.banner {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(90deg, #1f2937, #dc2626, #f59e0b) 1;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.banner:hover img {
+    transform: scale(1.02);
+}
+
+/* 横幅装饰角 - 彝族八角纹简版 */
+.banner::before,
+.banner::after {
+    content: "◆";
+    position: absolute;
+    color: rgba(245, 158, 11, 0.6);
+    font-size: 24px;
+    z-index: 10;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.banner::before {
+    top: 15px;
+    left: 15px;
+}
+
+.banner::after {
+    bottom: 15px;
+    right: 15px;
+    transform: rotate(45deg);
+}
+
+/* ==================== 导航栏 ==================== */
+.daohang {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2c5282 100%);
+    padding: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    /* 添加底部刺绣感边框 - 彝族黄 */
+    border-bottom: 2px solid rgba(245, 158, 11, 0.5);
+}
+
+.daohang p {
+    display: inline-block;
+    margin: 0;
+    position: relative;
+}
+
+.daohang a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 25px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 导航hover效果 - 金色滑入 */
+.daohang a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: rgba(245, 158, 11, 0.9);
+    transition: height 0.3s ease;
+    z-index: -1;
+}
+
+/* 彝族火焰纹渐变扫过效果 */
+.daohang a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(245, 158, 11, 0.3),
+        transparent
+    );
+    transition: left 0.5s;
+    z-index: -1;
+}
+
+.daohang a:hover {
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.daohang a:hover::before {
+    height: 100%;
+}
+
+.daohang a:hover::after {
+    left: 100%;
+}
+
+/* 导航项分隔 - 彝族风格棱形 */
+.daohang p:not(:last-child)::after {
+    content: "◆";
+    color: rgba(245, 158, 11, 0.6);
+    font-size: 8px;
+    position: absolute;
+    right: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ==================== 内容区域 ==================== */
+.content {
+    padding: 40px 30px;
+    overflow: hidden;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" opacity="0.04"><path d="M30 10 L40 30 L30 50 L20 30 Z" fill="none" stroke="%231e3a8a" stroke-width="1"/></svg>'),
+        linear-gradient(to bottom, #fefefe 0%, #f9f9f9 100%);
+    background-size: 60px 60px, 100% 100%;
+    position: relative;
+}
+
+/* 内容区侧边装饰线 - 彝族三色条纹（黑红黄） */
+.content::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    bottom: 40px;
+    width: 4px;
+    background: repeating-linear-gradient(
+        180deg,
+        #1f2937 0px,    /* 彝族黑 */
+        #1f2937 8px,
+        #dc2626 8px,    /* 彝族红 */
+        #dc2626 16px,
+        #f59e0b 16px,   /* 彝族黄 */
+        #f59e0b 24px,
+        transparent 24px,
+        transparent 32px
+    );
+    opacity: 0.6;
+    border-radius: 2px;
+}
+
+/* ==================== 三栏布局调整 ==================== */
+/* 左侧：彝文基础（25%） */
+.zuo {
+    float: left;
+    width: 24%;
+    margin-right: 2%;
+    position: relative;
+}
+
+/* 彝族八角花装饰（银饰风格） */
+.zuo::before {
+    content: "✦";
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    font-size: 32px;
+    color: rgba(31, 41, 55, 0.15);
+    font-family: serif;
+    z-index: 10;
+    text-shadow: 2px 2px 0 rgba(220, 38, 38, 0.1);
+}
+
+/* 中间：常用语句（50%） */
+.zhong {
+    float: left;
+    width: 50%;
+    margin-right: 2%;
+}
+
+/* 右侧：学习工具（23%） */
+.you {
+    float: left;
+    width: 22%;
+    position: relative;
+}
+
+/* ==================== 左侧栏样式 ==================== */
+.zuo-box {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-top: 4px solid #dc2626;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: relative;
+    /* 添加左侧民族色彩条 */
+    border-left: 3px solid #f59e0b;
+}
+
+/* 右上角装饰 - 蜡染圆点 */
+.zuo-box::before {
+    content: "◎";
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 40px;
+    color: rgba(220, 38, 38, 0.1);
+    font-family: serif;
+    line-height: 1;
+}
+
+/* 彝族漆器纹样角落（左下角三角形几何纹） */
+.zuo-box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background: 
+        linear-gradient(45deg, transparent 50%, rgba(245, 158, 11, 0.1) 50%),
+        linear-gradient(-45deg, transparent 50%, rgba(220, 38, 38, 0.1) 50%);
+    background-size: 10px 10px;
+    border-radius: 0 0 0 8px;
+    pointer-events: none;
+}
+
+.zuo-box h2 {
+    font-size: 20px;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f59e0b;
+    font-weight: 700;
+    letter-spacing: 2px;
+    position: relative;
+    /* 标题前添加民族符号 */
+    padding-left: 30px;
+}
+
+.zuo-box h2::before {
+    content: "❖";
+    position: absolute;
+    left: 0;
+    color: #dc2626;
+    font-size: 20px;
+}
+
+.zuo-box h2::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: #dc2626;
+}
+
+.yiwen-intro {
+    font-size: 14px;
+    color: #4b5563;
+    text-align: justify;
+    line-height: 1.8;
+    text-indent: 2em;
+    position: relative;
+}
+
+/* 段落首字下沉效果 - 古书风格 */
+.yiwen-intro p::first-letter {
+    font-size: 2em;
+    color: #dc2626;
+    font-weight: bold;
+    float: left;
+    line-height: 1;
+    margin-right: 4px;
+    font-family: "SimSun", serif;
+}
+
+.yiwen-char {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.yiwen-char img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: block;
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    /* 彝族三色边框效果 */
+    border: 2px solid transparent;
+    border-image: linear-gradient(
+        45deg,
+        #1f2937 0%,
+        #dc2626 50%,
+        #f59e0b 100%
+    ) 1;
+    padding: 5px;
+    background: #fff;
+}
+
+.yiwen-char img:hover {
+    transform: scale(1.02) rotate(1deg);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ==================== 声韵调系统样式 ==================== */
+.alpha-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.alpha-item {
+    background: #f5f5f5;
+    border: 1px solid #e5e7eb;
+    padding: 8px 4px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.alpha-item:hover {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2c5282 100%);
+    border-color: #1e3a8a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.alpha-item:hover .alpha-yi,
+.alpha-item:hover .alpha-han {
+    color: #FFD700;
+}
+
+.alpha-yi {
+    font-size: 16px;
+    color: #1e3a8a;
+    font-weight: bold;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.alpha-han {
+    font-size: 11px;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+/* ==================== 中间栏样式 ==================== */
+.section-box {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-top: 4px solid #1e3a8a;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 列表区域背景添加淡淡的几何纹 */
+.section-box::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.03"><path d="M50 10 L90 50 L50 90 L10 50 Z" fill="none" stroke="%23dc2626" stroke-width="2"/></svg>');
+    pointer-events: none;
+}
+
+.category-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+}
+
+.section-title {
+    color: #1e3a8a;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    position: relative;
+    padding-left: 35px;
+    border-left: none;
+}
+
+.section-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: 
+        linear-gradient(45deg, transparent 40%, #f59e0b 40%, #f59e0b 60%, transparent 60%),
+        linear-gradient(-45deg, transparent 40%, #dc2626 40%, #dc2626 60%, transparent 60%);
+    opacity: 0.9;
+}
+
+/* 双语对照表格样式 */
+.bilingual-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.bilingual-table th {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2c5282 100%);
+    color: #FFD700;
+    padding: 14px 12px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.bilingual-table td {
+    padding: 14px 12px;
+    border-bottom: 1px dashed #d1d5db;
+    font-size: 14px;
+    color: #374151;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.bilingual-table tr:hover {
+    background: linear-gradient(
+        90deg,
+        rgba(220, 38, 38, 0.05) 0%,
+        rgba(245, 158, 11, 0.05) 50%,
+        transparent 100%
+    );
+}
+
+.bilingual-table tr:hover td {
+    color: #1e3a8a;
+    border-left: 3px solid #dc2626;
+    padding-left: 9px;
+}
+
+.yi-text {
+    color: #1e3a8a;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.pronounce {
+    color: #6b7280;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* 语音播放按钮 */
+.audio-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    font-size: 10px;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(245, 158, 11, 0.4);
+    border: 2px solid #fff;
+}
+
+.audio-btn:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    transform: scale(1.15) rotate(15deg);
+    box-shadow: 0 4px 8px rgba(220, 38, 38, 0.4);
+}
+
+/* ==================== 右侧栏样式 ==================== */
+.tool-box {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-top: 4px solid #f59e0b;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 50%, transparent 50%);
+    pointer-events: none;
+}
+
+.tool-box h3 {
+    color: #1e3a8a;
+    font-size: 16px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f59e0b;
+    font-weight: 600;
+    position: relative;
+    padding-left: 25px;
+}
+
+.tool-box h3::before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    color: #dc2626;
+    font-size: 14px;
+}
+
+.tool-item {
+    background: linear-gradient(to right, #f9fafb 0%, #f3f4f6 100%);
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    color: #374151;
+    border-left: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-item::before {
+    content: "●";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #f59e0b;
+    font-size: 6px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.tool-item:hover {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2c5282 100%);
+    color: #FFD700;
+    transform: translateX(5px);
+    border-left-color: #f59e0b;
+    padding-left: 25px;
+    box-shadow: 0 4px 8px rgba(30, 58, 138, 0.3);
+}
+
+.tool-item:hover::before {
+    opacity: 1;
+    left: 12px;
+}
+
+.tool-item.active {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: #fff;
+    font-weight: bold;
+    border-left-color: #f59e0b;
+    box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+
+/* 快速查询框 */
+.search-box {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    background: #f9fafb;
+}
+
+.search-box:focus {
+    outline: none;
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+    background: #fff;
+}
+
+/* 学习进度条 */
+.tool-box div[style*="background: #f5f5f5"] {
+    background: linear-gradient(to right, #f3f4f6 0%, #e5e7eb 100%) !important;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+}
+
+.tool-box div[style*="height: 6px"] {
+    background: #e5e7eb !important;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.tool-box div[style*="width: 24%"] {
+    background: linear-gradient(90deg, #dc2626 0%, #f59e0b 100%) !important;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+/* ==================== 清除浮动 ==================== */
+.clearit {
+    clear: both;
+    height: 40px;
+    position: relative;
+}
+
+/* 清除浮动处的装饰分隔 */
+.clearit::before {
+    content: "◆ ❖ ◆";
+    display: block;
+    text-align: center;
+    color: rgba(30, 58, 138, 0.2);
+    font-size: 12px;
+    letter-spacing: 10px;
+    line-height: 40px;
+}
+
+/* ==================== 页脚 ==================== */
+.foot {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    color: #fff;
+    text-align: center;
+    padding: 35px 30px;
+    margin-top: 0;
+    position: relative;
+    /* 添加民族图案底纹 */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" opacity="0.05"><rect x="10" y="10" width="20" height="20" fill="none" stroke="%23ffffff" stroke-width="1"/></svg>');
+}
+
+/* 彝族回纹装饰线（黑红黄三色交替） */
+.foot::before {
+    content: "";
+    display: block;
+    height: 6px;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            #f59e0b 0px,
+            #f59e0b 20px,
+            #dc2626 20px,
+            #dc2626 40px,
+            #1f2937 40px,
+            #1f2937 60px
+        ),
+        linear-gradient(90deg, #f59e0b, #dc2626, #1f2937, #dc2626, #f59e0b);
+    background-size: 60px 100%, 100% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* 页脚装饰文字 */
+.foot::after {
+    content: "彩云之南";
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.1);
+    font-style: italic;
+    letter-spacing: 4px;
+}
+
+.foot p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #d1d5db;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+/* ==================== 响应式优化 ==================== */
+@media (max-width: 1120px) {
+    .page {
+        width: 95%;
+        margin: 20px auto;
+    }
+    
+    .zuo, .zhong, .you {
+        width: 100%;
+        float: none;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .daohang {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    
+    .daohang a {
+        height: 50px;
+        line-height: 50px;
+        padding: 0 15px;
+        font-size: 14px;
+    }
+    
+    .content::before {
+        display: none;
+    }
+}
+
+/* ==================== 装饰性元素 ==================== */
+/* 全局背景添加淡淡的彝绣几何纹理（八角花简化） */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" opacity="0.02"><path d="M30 5 L55 30 L30 55 L5 30 Z" fill="none" stroke="%231f2937" stroke-width="1"/><circle cx="30" cy="30" r="3" fill="%23dc2626"/></svg>');
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 选中文字的颜色 - 彝族金 */
+::selection {
+    background: rgba(245, 158, 11, 0.3);
+    color: #1e3a8a;
+}
+
+/* 滚动条美化 - 彝族三色 */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #1f2937, #dc2626, #f59e0b);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #f59e0b, #dc2626, #1f2937);
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+    <div class="banner"><img src="images/banner.jpg" width="100%" /></div>
+
+    <div class="daohang">
+        <p><a href="index.html">首页</a></p>
+        <p><a href="jieshao.html">彝族介绍</a></p>
+        <p><a href="jiyi.html">传统技艺</a></p>
+        <p><a href="shuangyu.html">彝汉双语</a></p>
+        <p><a href="gushi.html">民间故事</a></p>
+        <p><a href="shangcheng.html">非遗商城</a></p>
+        <p><a href="shangye.html">商业模式</a></p>
+        <p><a href="liuyan.html">客户留言</a></p>
+    </div>
+
+    <div class="content">
+        <!-- 左侧：彝文基础知识 -->
+        <div class="zuo">
+            <div class="zuo-box">
+                <h2>彝文简介</h2>
+                <div class="yiwen-intro">
+                    <p>彝文是彝族使用的表意音节文字，史称"爨文"、"韪书"，有800-1000年历史。传统彝文有约一万个字，常用一千余字。</p>
+                    <br>
+                    <p>彝文是<strong>世界六大古文字</strong>中唯一仍在使用的文字，主要通行于川、滇、黔、桂四省区。</p>
+                </div>
+                <div class="yiwen-char">
+                    <img src="images/duizhaobiao.jpg" alt="古彝文对照表" />
+                </div>
+                <p style="font-size:12px;color:#666;text-align:center;">古彝文与规范彝文对照</p>
+            </div>
+
+            <div class="zuo-box">
+                <h2>声韵调系统</h2>
+                <div class="alpha-grid">
+                    <div class="alpha-item">
+                        <span class="alpha-yi">ꀀ</span>
+                        <span class="alpha-han">a</span>
+                    </div>
+                    <div class="alpha-item">
+                        <span class="alpha-yi">ꀃ</span>
+                        <span class="alpha-han">i</span>
+                    </div>
+                    <div class="alpha-item">
+                        <span class="alpha-yi">ꀆ</span>
+                        <span class="alpha-han">o</span>
+                    </div>
+                    <div class="alpha-item">
+                        <span class="alpha-yi">ꀉ</span>
+                        <span class="alpha-han">u</span>
+                    </div>
+                    <div class="alpha-item">
+                        <span class="alpha-yi">ꀏ</span>
+                        <span class="alpha-han">e</span>
+                    </div>
+                    <div class="alpha-item">
+                        <span class="alpha-yi">ꀒ</span>
+                        <span class="alpha-han">ie</span>
+                    </div>
+                    <div class="alpha-item">
+                        <span class="alpha-yi">ꀕ</span>
+                        <span class="alpha-han">ai</span>
+                    </div>
+                    <div class="alpha-item">
+                        <span class="alpha-yi">ꀘ</span>
+                        <span class="alpha-han">ei</span>
+                    </div>
+                </div>
+                <p style="font-size:12px;color:#666;margin-top:10px;">点击字母听发音（需音频支持）</p>
+            </div>
+
+            <div class="zuo-box">
+                <h2>文字特点</h2>
+                <ul style="font-size:13px;line-height:2;color:#555;padding-left:15px;list-style:none;">
+                    <li style="padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:#f59e0b;">●</span>从左至右竖行书写</li>
+                    <li style="padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:#dc2626;">●</span>无统一规范，各地有异</li>
+                    <li style="padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:#f59e0b;">●</span>象形、指事、会意兼备</li>
+                    <li style="padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:#dc2626;">●</span>主要用于宗教仪式和文献</li>
+                    <li style="padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:#f59e0b;">●</span>1980年推行规范彝文</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 中间：常用语句教学 -->
+        <div class="zhong">
+            <div class="section-box">
+                <div class="category-tag">日常问候</div>
+                <h2 class="section-title">日常交际用语</h2>
+                <table class="bilingual-table">
+                    <tr>
+                        <th width="35%">彝文</th>
+                        <th width="35%">汉意</th>
+                        <th width="30%">发音</th>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꈎꏅꃅꄉ<span class="audio-btn" onclick="playAudio('hello')">▶</span></td>
+                        <td>你好 / 您好</td>
+                        <td class="pronounce">[kax shur mu da]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꑭꆹꏿ<span class="audio-btn" onclick="playAudio('morning')">▶</span></td>
+                        <td>早上好</td>
+                        <td class="pronounce">[xie li qo]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꇿꑟꀕ<span class="audio-btn" onclick="playAudio('thanks')">▶</span></td>
+                        <td>谢谢</td>
+                        <td class="pronounce">[ka xie bbo]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꇭꍣꄉ<span class="audio-btn" onclick="playAudio('sorry')">▶</span></td>
+                        <td>对不起 / 抱歉</td>
+                        <td class="pronounce">[ggop zha da]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꆎꆹꀋꉬꀐ<span class="audio-btn" onclick="playAudio('goodbye')">▶</span></td>
+                        <td>再见</td>
+                        <td class="pronounce">[nu li ax nge ox]</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section-box">
+                <div class="category-tag">家庭称谓</div>
+                <h2 class="section-title">家庭成员称呼</h2>
+                <table class="bilingual-table">
+                    <tr>
+                        <th width="35%">彝文</th>
+                        <th width="35%">汉意</th>
+                        <th width="30%">发音</th>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꀉꂾ<span class="audio-btn" onclick="playAudio('mother')">▶</span></td>
+                        <td>妈妈 / 母亲</td>
+                        <td class="pronounce">[a mat]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꀉꄉ<span class="audio-btn" onclick="playAudio('father')">▶</span></td>
+                        <td>爸爸 / 父亲</td>
+                        <td class="pronounce">[a dat]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꀉꁧ<span class="audio-btn" onclick="playAudio('grandma')">▶</span></td>
+                        <td>奶奶 / 外婆</td>
+                        <td class="pronounce">[a bbo]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꀉꀕ<span class="audio-btn" onclick="playAudio('grandpa')">▶</span></td>
+                        <td>爷爷 / 外公</td>
+                        <td class="pronounce">[a bbo]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꇭꀋ<span class="audio-btn" onclick="playAudio('elder')">▶</span></td>
+                        <td>哥哥</td>
+                        <td class="pronounce">[ggop a]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꃀꀋ<span class="audio-btn" onclick="playAudio('sister')">▶</span></td>
+                        <td>姐姐</td>
+                        <td class="pronounce">[mot a]</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section-box">
+                <div class="category-tag">生活用语</div>
+                <h2 class="section-title">日常生活表达</h2>
+                <table class="bilingual-table">
+                    <tr>
+                        <th width="35%">彝文</th>
+                        <th width="35%">汉意</th>
+                        <th width="30%">发音</th>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꋚꁧ<span class="audio-btn" onclick="playAudio('eat')">▶</span></td>
+                        <td>吃饭</td>
+                        <td class="pronounce">[zza bbo]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꑭꁨꄉ<span class="audio-btn" onclick="playAudio('water')">▶</span></td>
+                        <td>喝水</td>
+                        <td class="pronounce">[xie bbu da]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꑭꏢ<span class="audio-btn" onclick="playAudio('sleep')">▶</span></td>
+                        <td>睡觉</td>
+                        <td class="pronounce">[xie ji]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꆎꁧꇁ<span class="audio-btn" onclick="playAudio('come')">▶</span></td>
+                        <td>你来</td>
+                        <td class="pronounce">[nu bbo la]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꆎꄡꇁ<span class="audio-btn" onclick="playAudio('dontgo')">▶</span></td>
+                        <td>你别走</td>
+                        <td class="pronounce">[nu tap la]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꆎꁧꎭ<span class="audio-btn" onclick="playAudio('good')">▶</span></td>
+                        <td>你好吗？</td>
+                        <td class="pronounce">[nu bbo sha]</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section-box">
+                <div class="category-tag">数字时间</div>
+                <h2 class="section-title">数字与数量</h2>
+                <table class="bilingual-table">
+                    <tr>
+                        <th width="35%">彝文</th>
+                        <th width="35%">汉意</th>
+                        <th width="30%">发音</th>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꋍ<span class="audio-btn" onclick="playAudio('one')">▶</span></td>
+                        <td>一 / 1</td>
+                        <td class="pronounce">[ci]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꑍ<span class="audio-btn" onclick="playAudio('two')">▶</span></td>
+                        <td>二 / 2</td>
+                        <td class="pronounce">[nie]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꌕ<span class="audio-btn" onclick="playAudio('three')">▶</span></td>
+                        <td>三 / 3</td>
+                        <td class="pronounce">[suo]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꇖ<span class="audio-btn" onclick="playAudio('four')">▶</span></td>
+                        <td>四 / 4</td>
+                        <td class="pronounce">[ly]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꉬ<span class="audio-btn" onclick="playAudio('five')">▶</span></td>
+                        <td>五 / 5</td>
+                        <td class="pronounce">[nge]</td>
+                    </tr>
+                    <tr>
+                        <td class="yi-text">ꃘ<span class="audio-btn" onclick="playAudio('ten')">▶</span></td>
+                        <td>十 / 10</td>
+                        <td class="pronounce">[hxi]</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 右侧：学习工具与扩展 -->
+        <div class="you">
+            <div class="tool-box">
+                <h3>📚 课程分类</h3>
+                <div class="tool-item active" onclick="switchTab('daily')">日常问候语</div>
+                <div class="tool-item" onclick="switchTab('family')">家庭称谓</div>
+                <div class="tool-item" onclick="switchTab('life')">生活用语</div>
+                <div class="tool-item" onclick="switchTab('number')">数字时间</div>
+                <div class="tool-item" onclick="switchTab('festival')">节日文化</div>
+                <div class="tool-item" onclick="switchTab('song')">民歌民谣</div>
+            </div>
+
+            <div class="tool-box">
+                <h3>🔍 快速查询</h3>
+                <input type="text" class="search-box" placeholder="输入汉字或彝文..." id="searchInput">
+                <div class="tool-item" onclick="searchWord()">查询翻译</div>
+                <div class="tool-item" onclick="randomWord()">随机学词</div>
+            </div>
+
+            <div class="tool-box">
+                <h3>📖 今日一句</h3>
+                <div style="text-align: center; padding: 15px 0; border-bottom: 1px dashed #ddd; margin-bottom: 10px;">
+                    <div style="font-size: 24px; color: #1e3a8a; font-weight: bold; margin-bottom: 8px;">ꈎꏅꃅꄉ</div>
+                    <div style="font-size: 14px; color: #6b7280;">[kax shur mu da]</div>
+                    <div style="font-size: 16px; color: #374151; margin-top: 8px;">你好</div>
+                </div>
+                <p style="font-size: 12px; color: #6b7280; line-height: 1.6;">
+                    这是彝族最常用的问候语，相当于汉语的"您好"。在火把节等节日见面时使用更显亲切。
+                </p>
+            </div>
+
+            <div class="tool-box">
+                <h3>🎯 学习进度</h3>
+                <div style="background: #f5f5f5; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+                    <div style="font-size: 12px; margin-bottom: 5px; color: #6b7280;">已掌握词汇</div>
+                    <div style="font-size: 20px; font-weight: bold; color: #1e3a8a;">24 / 100</div>
+                    <div style="width: 100%; height: 6px; background: #ddd; border-radius: 3px; margin-top: 8px;">
+                        <div style="width: 24%; height: 100%; background: #dc2626; border-radius: 3px;"></div>
+                    </div>
+                </div>
+                <div class="tool-item" onclick="startTest()">开始测试</div>
+                <div class="tool-item" onclick="saveProgress()">保存进度</div>
+            </div>
+
+            <div class="tool-box">
+                <h3>📱 移动端学习</h3>
+                <p style="font-size: 13px; line-height: 1.6; margin-bottom: 10px; color: #6b7280;">
+                    扫描二维码下载彝汉双语学习APP，随时随地学习彝语。
+                </p>
+                <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); margin: 0 auto; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 12px; border: 2px dashed #d1d5db;">
+                    二维码
+                </div>
+            </div>
+        </div>
+        
+        <div class="clearit"></div>
+    </div>
+
+    <div class="foot">
+        <p>版权所有 禁止盗版<br />
+        联系我们：dnijbv@163.com（邮箱）<br />
+        传承非遗文化 · 弘扬民族精神</p>
+    </div>
+</div>
+
+<script type="text/javascript">
+// 音频播放功能（模拟）
+function playAudio(word) {
+    alert('正在播放发音: ' + word + '\n（实际项目中此处播放音频文件）');
+    // 实际使用时：new Audio('audio/' + word + '.mp3').play();
+}
+
+// 切换标签页
+function switchTab(category) {
+    // 移除所有active类
+    var items = document.querySelectorAll('.tool-item');
+    for(var i = 0; i < items.length; i++) {
+        items[i].classList.remove('active');
+    }
+    // 添加active类到当前点击项
+    event.target.classList.add('active');
+    
+    // 滚动到对应区域（简单实现）
+    alert('已切换到: ' + event.target.innerText);
+}
+
+// 查询功能
+function searchWord() {
+    var input = document.getElementById('searchInput').value;
+    if(input.trim() === '') {
+        alert('请输入要查询的词汇');
+        return;
+    }
+    alert('正在查询: ' + input + '\n（实际项目中连接词典数据库）');
+}
+
+// 随机学词
+function randomWord() {
+    var words = ['ꈎꏅꃅꄉ', 'ꑭꆹꏿ', 'ꇿꑟꀕ', 'ꀉꂾ', 'ꀉꄉ', 'ꋚꁧ'];
+    var random = words[Math.floor(Math.random() * words.length)];
+    alert('今日随机词汇: ' + random);
+}
+
+// 开始测试
+function startTest() {
+    alert('测试功能开发中...\n将随机抽取10个词汇进行听写测试');
+}
+
+// 保存进度
+function saveProgress() {
+    alert('学习进度已保存到本地');
+}
+
+// 页面加载完成后的初始化
+window.onload = function() {
+    console.log('彝汉双语教学页面已加载');
+};
+</script>
+
+</body>
+</html>
